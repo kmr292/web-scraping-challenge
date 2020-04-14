@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+      <div class="jumbotron text-center">
+          <h1>Mission to Mars</h1>
+          <p><a class="btn btn-warning btn-lg" href="/scrape" role="button" style="background-color:rgb(29, 153, 230); border-color: black;">Scrape Data</a></p>
+      </div>
+
+      <!--Mars News-->
+      <div class="row">
+          <div class="col-12">
+              <h3><strong>Latest Mars News</strong></h3>
+              <p><strong>{{ mars_app.news_title }}</strong></p>
+              <p>{{ mars_app.news_paragraph }}</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <!--Featured Image--> 
+          <div class="col-lg-8 col-md-8 col-sm-8 taller float-left">
+              <h3><strong>Featured Mars Image</strong></h3>
+              <img src="{{ mars_app.feature_image }}" alt="Featured Image from the NASA Jet Propulsion Laboratory" style="width:600px">
+          </div>
+          
+          <!--Weather/Facts-->
+          <div class="col-lg-4 col-md-4 col-sm-4 float-right" style="border:1px rgb(165, 165, 165) solid; margin-bottom:40px">
+              <br>
+              <strong>Current Weather on Mars</strong>
+              <br>
+              <p>{{ mars_app.weather }}</p>
+              <br>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 float-right">
+              <table>
+                  {{ mars_app.facts | safe }}
+              </table>
+          </div>
+      </div>
+
+      <!--Hemisphere Images-->
+      <div class="row text-center" style="margin-top:40px; margin-bottom:40px">
+          <h3><strong>Mars Hemispheres</strong></h3>
+      </div>
+      <div class="row text-center" style="margin-bottom:40px">
+          <div class="col-6 img-thumbnail">
+            <img src="{{ mars_app.hemisphere[0]['img_url'] }}" alt="mars_app.hemisphere[0]['title']" style="width:400px">
+            <p><strong>{{ mars_app.hemisphere[0]['title'] }}</strong></p>
+        </div>
+        <div class="col-6 img-thumbnail">
+            <img src="{{ mars_app.hemisphere[1]['img_url'] }}" alt="mars_app.hemisphere[1]['title']" style="width:400px">
+            <p><strong>{{ mars_app.hemisphere[1]['title'] }}</strong></p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-6 img-thumbnail">
+            <img src="{{ mars_app.hemisphere[2]['img_url'] }}" alt="mars_app.hemisphere[2]['title']" style="width:400px">
+            <p><strong>{{ mars_app.hemisphere[2]['title'] }}</strong></p>
+        </div>
+        <div class="col-6 img-thumbnail">
+            <img src="{{ mars_app.hemisphere[3]['img_url'] }}" alt="mars_app.hemisphere[3]['title']" style="width:400px">
+            <p><strong>{{ mars_app.hemisphere[3]['title'] }}</strong></p> 
+        </div>
+
+      </div>
+
+  </div>
+
+</body>
+
+</html>
+
